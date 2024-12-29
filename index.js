@@ -7,11 +7,11 @@ const randomColor = function () {
     return color;
 };
 let intervalId;
-console.log(randomColor());
+// console.log(randomColor());
 const startChangingColor = function () {
 
     if (!intervalId) {    // console.log('button clicked');
-        intervalId = setInterval(changeBgcolor, 1000)
+        intervalId = setInterval(changeBgcolor, 1100)
         function changeBgcolor() {
             document.body.style.backgroundColor = randomColor();
 
