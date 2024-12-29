@@ -6,19 +6,32 @@ const randomColor = function () {
     }
     return color;
 };
+let intervalId;
 console.log(randomColor());
 const startChangingColor = function () {
-    console.log( 'button clicked');
-    document.body.style.backgroundColor = randomColor();
+
+    if (!intervalId) {    // console.log('button clicked');
+        intervalId = setInterval(changeBgcolor, 1000)
+        function changeBgcolor() {
+            document.body.style.backgroundColor = randomColor();
+
+        }
+    }
 }
 const stopChangingColor = function () {
+    // console.log("clicked")
+    if (intervalId) {
 
+        clearInterval(intervalId);
+        intervalId = null;
+
+    }
 }
 
 const checkerNew = document.querySelector("#start").addEventListener
     ('click', startChangingColor);
-    
-    
+
+
 document.querySelector("#stop").addEventListener
     ('click', stopChangingColor)
 
